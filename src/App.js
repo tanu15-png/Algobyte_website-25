@@ -9,24 +9,23 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { Toaster } from "react-hot-toast";
 import { useEffect, useState } from "react";
-import GlobalStyle from './global.scss';
+import './global.scss';
 
 function App() {
-  <GlobalStyle /> 
   const [menuOpen, setMenuOpen] = useState(false);
   const [ratio, setRatio] = useState(window.innerWidth / window.innerHeight);
   useEffect(() => {
     const resizeRatio = () => {
       setRatio(window.innerWidth / window.innerHeight);
     };
-
+    
     window.addEventListener("resize", resizeRatio);
-
+    
     return () => {
       window.removeEventListener("resize", resizeRatio);
     };
   }, [ratio]);
-
+  
   return (
     <>
       <HeaderPhone menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
